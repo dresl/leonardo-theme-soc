@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+{% load leonardo_tags feincms_page_tags applicationcontent_tags branding i18n %}
+{% load analytical %}
+{% load staticfiles %}
+<html>
+  <head>
+    {% analytical_head_top %}
+    {% include "_header.html" %}
+    {% analytical_head_bottom %}
+  </head>
+  <body id="{% block body_id %}main_content{% endblock %}" ng-app='horizon.app' ng-strict-di class="">
+    <noscript>
+      <div class="javascript_disabled_alert">
+        {% trans "This application requires JavaScript to be enabled in your web browser." %}
+      </div>
+    </noscript>
+    {% analytical_body_top %}
+    {% include "horizon/_messages.html" %}
+    <div class="navbar navbar-static-top">
+      <div class="container-fluid">
+        {% feincms_render_region feincms_page "header" request %}
+      </div>
+    </div>
+    <div class="container{% if feincms_page.layout == 'fluid' %}-fluid{% endif %}">
+      <div class="col-xs-12" id="main_col_12">
+      {% feincms_render_region feincms_page "col3" request %}
+      {% render_region_tools feincms_page "col3" request %}
+      {% block body_main %}{% endblock %}
+      </div>
+    </div>
+    <footer>
+      <div class="container-fluid">
+        {% feincms_render_region feincms_page "footer" request %}
+      </div>
+    </footer>
+    {% feincms_render_region feincms_page "helper" request %}
+    {% include "horizon/_scripts.html" %}
+    <div id="modal_wrapper"></div>
+    {% analytical_body_bottom %}
+  </body>
+</html>
