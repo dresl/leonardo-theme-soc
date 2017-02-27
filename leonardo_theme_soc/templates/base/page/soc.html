@@ -26,24 +26,24 @@
         </button>
       </div>
     </div>
-    <div class="{{ feincms_page.get_layout_class }}">
+    <div class="{{ feincms_page.get_layout_class }} soc-content">
       <div class="page-header">
         {% feincms_render_region feincms_page "toolbar" request %}
       </div>
       <div class="bs-docs-section">
-        <aside class="col1 {% get_col_classes feincms_page 'col1' %}">
+<!--         <aside class="col1 {% get_col_classes feincms_page 'col1' %}">
           {% feincms_render_region feincms_page "col1" request %}
           {% render_region_tools feincms_page "col1" request %}
-        </aside>
+        </aside> -->
         <section class="col3 {% get_col_classes feincms_page 'col3' %}">
           {% feincms_render_region feincms_page "col3" request %}
           {% render_region_tools feincms_page "col3" request %}
           {% block body_main %}{% endblock %}
         </section>
-        <aside class="col2 {% get_col_classes feincms_page 'col2' %}">
+<!--         <aside class="col2 {% get_col_classes feincms_page 'col2' %}">
           {% feincms_render_region feincms_page "col2" request %}
           {% render_region_tools feincms_page "col2" request %}
-        </aside>
+        </aside> -->
       </div>
       <footer>
         {% feincms_render_region feincms_page "footer" request %}
